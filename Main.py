@@ -1,29 +1,38 @@
-import Conexion as conexionBD
-from Producto import Producto
+import Controlador
 
-print("*******BIENVENIDO A LA CALCULADORA BIG BRED SA***********")
-print("¿Quiere ingresar un producto?")
-print("Para ingresar un producto ingrese 1")
-print("Para ver el listado de los productos ingrese 2")
-ingresaProducto = int(input())
-if ingresaProducto == 1:
-    con = conexionBD.Conectar()
-    nombreProducto = input("Ingrese el nombre del producto:")
-    stockProducto = int(input("Ingrese el stock del producto:"))
-    precioProducto = int(input("Ingrese el precio del producto:"))
-    unidadDeMedidaProducto = input("Ingrese la unidad de medida del producto:")
-    producto = Producto(0,nombreProducto,stockProducto,precioProducto,unidadDeMedidaProducto,0)
-    conexionBD.Insertar_Producto(producto)
-    
-elif  ingresaProducto == 2:
-    con = conexionBD.Conectar()
-    prod=conexionBD.Listado_De_Productos()
-    for i in prod:
-        print("Nombre:" + i[1] + "Stock:" + i[2] + "Precio" + i[3]+ "Unidad de medida del producto" + i[4])
-
-
-
-
-
+while True:
+    print("\n+-------------------------------------------+")
+    print("|         Big Bread SA         |")
+    print("+-------------------------------------------+\n")
+    print("")
+    print("MENÚ PRINCIPAL\n")
+    print("1 - INGRESAR / ELIMINAR / MODIFICACION DE PRODUCTO")
+    print("2 - ALTA / BAJA / MODIFICACION DE INSUMOS")
+    print("3 - ALTA / BAJA / MODIFICACION DE PRODUCCIÓN DIARIA")
+    print("4 - ALTA / BAJA / MODIFICACION DE RECETAS")
+    print("5 - LISTADO DE PRODUCTOS")
+    print("6 - LISTADO DE PRODUCCIÓN EN UN INTERVALO")
+    print("7 - LISTADO DE INSUMOS DIARIO")
+    print("8 - SALIR")
+    print("\n")
+    opcion = int(input("Ingrese su opción: "))
+    if opcion == 1:
+        Controlador.InsertarProducto()
+    elif opcion == 2:
+        None
+    elif opcion == 3:
+        None
+    elif opcion == 4:
+        None
+    elif opcion == 5:
+        Controlador.ListarProductos()
+    elif opcion == 6:
+        None
+    elif opcion == 7:
+        None
+    elif opcion == 8:
+        break
+    else:
+        print("¡Opción incorrecta!")
 
 
